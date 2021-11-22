@@ -16,7 +16,5 @@ The goal of sparseprepr is to …
 
 Install from [Github](https://github.com) with:
 
-``` r
-# install.packages(devtools)
-# devtools::install_github("dmolitor/sparseprepr")
-```
+    # install.packages(devtools)
+    devtools::install_github("dmolitor/sparseprepr", auth_token = "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")

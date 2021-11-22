@@ -14,6 +14,8 @@
 #' }
 #'
 #' @param x A `matrix` or `dgCMatrix`.
+#' @param threshold A double between 0 and 1 specifying the sparsity threshold
+#'   at which to remove columns.
 #'
 #' @return `x` with sparse columns removed.
 #'

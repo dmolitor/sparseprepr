@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 # sparseprepr
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/dmolitor/sparseprepr/workflows/R-CMD-check/badge.svg)](https://github.com/dmolitor/sparseprepr/actions)
+[![Codecov test coverage](https://codecov.io/gh/dmolitor/sparseprepr/branch/main/graph/badge.svg?token=PCAC1RA7GE)](https://codecov.io/gh/dmolitor/sparseprepr?branch=main)
 <!-- badges: end -->
 
 The goal of sparseprepr is to ...

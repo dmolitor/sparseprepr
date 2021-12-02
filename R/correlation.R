@@ -1,0 +1,57 @@
+#' Correlation (Sparse and Dense Matrices)
+#'
+#' `cor` computes the sample correlation between each column pair in a sparse
+#' matrix.
+#'
+#' `cor()` is an S3 generic with methods for:
+#' \enumerate{
+#'   \item{
+#'     \code{dgCMatrix}
+#'   }
+#'   \item{
+#'    \code{matrix}
+#'   }
+#' }
+#'
+#' @param x A `matrix` or `dgCMatrix`.
+#' @param ... Additional arguments to pass to methods.
+#'
+#' @return A `p`x`p` matrix where `p` is the number of matrix columns, and the
+#'   (`i`, `j`)th element corresponds to the sample correlation between `p_i`
+#'   and `p_j`.
+#'
+#' @examples
+#' x <- Matrix::rsparsematrix(10, 3, .5)
+#' xdense <- as.matrix(x)
+#'
+#' cor(x)
+#' cor(xdense)
+#'
+#' @export
+cor <- function(x, ...) {
+  UseMethod("cor")
+}
+
+#' @method cor default
+#' @rdname cor
+#' @export
+cor.default <- function(x, ...) {
+  stats::cor(x = x, ...)
+}
+
+#' @method cor dgCMatrix
+#' @rdname cor
+#' @export
+cor.dgCMatrix <- function(x, ...) {
+  n <- nrow(x)
+  cMeans <- Matrix::colMeans(x)
+  cSums <- Matrix::colSums(x)
+  covmat <- Matrix::tcrossprod(
+    cMeans,
+    ((-2 * cSums) + (n * cMeans))
+  )
+  crossp <- Matrix::crossprod(x)
+  covmat <- covmat + crossp
+  sdvec <- sqrt(Matrix::diag(covmat)) # standard deviations of columns
+  as.matrix(covmat/Matrix::crossprod(Matrix::t(sdvec))) # correlation matrix
+}

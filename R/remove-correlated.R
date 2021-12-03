@@ -1,7 +1,7 @@
 #' Remove highly correlated columns
 #'
-#' `remove_correlated` removes one of column-pairs from sparse and dense 
-#' matrices that have sample correlation value greater than a user-defined 
+#' `remove_correlated` removes one of column-pairs from sparse and dense
+#' matrices that have sample correlation value greater than a user-defined
 #' threshold.
 #'
 #' `remove_correlated()` is an S3 generic with methods for:
@@ -28,10 +28,10 @@
 #' colnames(x) <- paste0("x", 1:9)
 #' # Print x
 #' x
-#' 
+#'
 #' # Same matrix in dense format
 #' xdense <- as.matrix(x)
-#' 
+#'
 #' # Drop highly correlated columns
 #' remove_correlated(x, threshold = 0.99)
 #' remove_correlated(xdense, threshold = 0.99)
@@ -50,7 +50,7 @@ remove_correlated.dgCMatrix <- function(x, threshold = 0.99) {
   cor_mat[upper.tri(cor_mat, TRUE)] <- NA
   drop_cols <- which(abs(cor_mat) >= threshold, arr.ind = TRUE)[, 1]
   if (identical(drop_cols, integer(0))) return(x)
-  x[, -drop_cols]
+  x[, -drop_cols, drop = FALSE]
 }
 
 #' @method remove_correlated matrix
@@ -62,5 +62,5 @@ remove_correlated.matrix <- function(x, threshold = 0.99) {
   cor_mat[upper.tri(cor_mat, TRUE)] <- NA
   drop_cols <- which(abs(cor_mat) >= threshold, arr.ind = TRUE)[, 1]
   if (identical(drop_cols, integer(0))) return(x)
-  x[, -drop_cols]
+  x[, -drop_cols, drop = FALSE]
 }

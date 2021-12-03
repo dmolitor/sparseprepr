@@ -48,7 +48,7 @@ remove_duplicate.dgCMatrix <- function(x) {
   names(H) <- I
   dupes <- split(H, factor(J, levels = 1:ncol(x)))
   idx <- duplicated(dupes)
-  x[, !idx]
+  x[, !idx, drop = FALSE]
 }
 
 #' @method remove_duplicate matrix
@@ -56,5 +56,5 @@ remove_duplicate.dgCMatrix <- function(x) {
 #' @export
 remove_duplicate.matrix <- function(x) {
   idx <- duplicated(x, MARGIN = 2L)
-  x[, !idx]
+  x[, !idx, drop = FALSE]
 }

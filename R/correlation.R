@@ -53,5 +53,22 @@ cor.dgCMatrix <- function(x, ...) {
   crossp <- Matrix::crossprod(x)
   covmat <- covmat + crossp
   sdvec <- sqrt(Matrix::diag(covmat)) # standard deviations of columns
-  as.matrix(covmat/Matrix::crossprod(Matrix::t(sdvec))) # correlation matrix
+  if (any(sdvec == 0)) {
+    zerovar <- which(sdvec == 0)
+    warning(
+      paste("Column(s)",
+            paste(zerovar, collapse = ", "),
+            "have a standard deviation of 0"),
+      call. = FALSE
+    )
+    cprod <- Matrix::crossprod(Matrix::t(sdvec))
+    cprod[cprod == 0] <- NA
+    cor_mat <- as.matrix(covmat/cprod) # correlation matrix
+    diag(cor_mat) <- 1
+  } else {
+    cprod <- Matrix::crossprod(Matrix::t(sdvec))
+    cor_mat <- as.matrix(covmat/cprod) # correlation matrix
+  }
+  cor_mat
 }
+

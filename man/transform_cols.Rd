@@ -40,7 +40,7 @@ function.
 }
 \details{
 \code{transform_cols()} is an S3 generic with methods for:
-\enumerate{
+\itemize{
 \item{
 \code{dgCMatrix}
 }

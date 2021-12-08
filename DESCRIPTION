@@ -1,12 +1,14 @@
 Package: sparseprepr
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Pre Processing for Sparse Matrices
+Version: 0.0.0.9001
 Authors@R: 
     person(given = "Daniel",
            family = "Molitor",
            role = c("aut", "cre"),
            email = "molitdj97@gmail.com")
-Description: What the package does (one paragraph).
+Description: Sparse matrices allow for in-memory modeling with very large
+    data sets. This package enables common pre-processing actions for sparse 
+    matrices and provides a more memory-efficient workflow for modeling at scale.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

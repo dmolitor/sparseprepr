@@ -24,7 +24,7 @@ matrices.
 }
 \details{
 \code{remove_duplicate()} is an S3 generic with methods for:
-\enumerate{
+\itemize{
 \item{
 \code{dgCMatrix}
 }

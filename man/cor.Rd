@@ -19,21 +19,21 @@ cor(x, ...)
 }
 \value{
 A \code{p}x\code{p} matrix where \code{p} is the number of matrix columns, and the
-(\code{i}, \code{j})th element corresponds to the sample correlation between \code{p_i}
+(\code{i}, \code{j}) th element corresponds to the sample correlation between \code{p_i}
 and \code{p_j}.
 }
 \description{
-\code{cor} computes the sample correlation between each column pair in a sparse
-matrix.
+\code{cor} computes the sample correlation between each column pair in sparse or
+dense matrices.
 }
 \details{
 \code{cor()} is an S3 generic with methods for:
-\enumerate{
+\itemize{
 \item{
 \code{dgCMatrix}
 }
 \item{
-\code{matrix}
+Any object supported by \code{stats::cor}
 }
 }
 }

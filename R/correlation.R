@@ -1,15 +1,15 @@
 #' Correlation (Sparse and Dense Matrices)
 #'
-#' `cor` computes the sample correlation between each column pair in a sparse
-#' matrix.
+#' `cor` computes the sample correlation between each column pair in sparse or
+#' dense matrices.
 #'
 #' `cor()` is an S3 generic with methods for:
-#' \enumerate{
+#' \itemize{
 #'   \item{
 #'     \code{dgCMatrix}
 #'   }
 #'   \item{
-#'    \code{matrix}
+#'    Any object supported by \code{stats::cor}
 #'   }
 #' }
 #'
@@ -17,7 +17,7 @@
 #' @param ... Additional arguments to pass to methods.
 #'
 #' @return A `p`x`p` matrix where `p` is the number of matrix columns, and the
-#'   (`i`, `j`)th element corresponds to the sample correlation between `p_i`
+#'   (`i`, `j`) th element corresponds to the sample correlation between `p_i`
 #'   and `p_j`.
 #'
 #' @examples

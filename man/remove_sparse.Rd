@@ -27,7 +27,7 @@ sparsity value greater than a user-defined threshold.
 }
 \details{
 \code{remove_sparse()} is an S3 generic with methods for:
-\enumerate{
+\itemize{
 \item{
 \code{dgCMatrix}
 }

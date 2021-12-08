@@ -5,7 +5,7 @@
 #' threshold.
 #'
 #' `remove_correlated()` is an S3 generic with methods for:
-#' \enumerate{
+#' \itemize{
 #'   \item{
 #'     \code{dgCMatrix}
 #'   }

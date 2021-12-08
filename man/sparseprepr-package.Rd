@@ -4,9 +4,9 @@
 \name{sparseprepr-package}
 \alias{sparseprepr}
 \alias{sparseprepr-package}
-\title{sparseprepr: What the Package Does (One Line, Title Case)}
+\title{sparseprepr: Pre Processing for Sparse Matrices}
 \description{
-What the package does (one paragraph).
+Sparse matrices allow for in-memory modeling with very large data sets. This package enables common pre-processing actions for sparse matrices and provides a more memory-efficient workflow for modeling at scale.
 }
 \author{
 \strong{Maintainer}: Daniel Molitor \email{molitdj97@gmail.com}

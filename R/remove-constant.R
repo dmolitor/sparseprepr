@@ -44,7 +44,7 @@ remove_constant.dgCMatrix <- function(x) {
   empty_cols <- diff(x@p) == 0
   full_cols <- diff(x@p) == x@Dim[[1]]
   if (any(full_cols)) {
-    full_cols[full_cols] <- apply(x[, full_cols],
+    full_cols[full_cols] <- apply(x[, full_cols, drop = FALSE],
                                   MARGIN = 2,
                                   FUN = function(i) abs(max(i) - min(i)) == 0)
   }

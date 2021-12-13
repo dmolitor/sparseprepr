@@ -20,12 +20,107 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/dmolitor/sparseprepr/branch/main/graph/badge.svg?token=PCAC1RA7GE)](https://codecov.io/gh/dmolitor/sparseprepr?branch=main)
 <!-- badges: end -->
 
-The goal of sparseprepr is to ...
+The goal of sparseprepr is to enable common pre-processing actions for sparse 
+matrices and provide a more memory-efficient workflow for modeling at scale.
 
 ## Installation
 
 Install from [Github](https://github.com) with:
 ```
 # install.packages(devtools)
-devtools::install_github("dmolitor/sparseprepr", auth_token = "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")
+devtools::install_github("dmolitor/sparseprepr")
+```
+
+## Core Functionality
+```{r, include = FALSE}
+x <- Matrix::rsparsematrix(10, 3, density = 0.6)
+x <- cbind(x, x[, 3, drop = FALSE])
+x[10, 3] <- x[10, 3] + 0.1
+x <- cbind(x, 1, 0)
+x <- cbind(x, x[, 2, drop = FALSE])
+x <- cbind(x, c(rep(0, 9), 1))
+colnames(x) <- c(
+  paste0("x", 1:3),
+  "cor_with_x3",
+  "const_col",
+  "const_col2",
+  "dup_x2",
+  "sparse_col"
+)
+```
+
+The following toy example shows a number of the pre-processing features that
+sparseprepr provides. The matrix is shown below:
+```{r}
+library(sparseprepr)
+
+x
+```
+
+This matrix has a number of contrived features; column `cor_with_x3` is highly 
+correlated with column `x3`, `const_col` and `const_col2` are zero-variance 
+columns, `dup_x2` is identical to `x2`, and `sparse_col` is a highly sparse 
+column.
+
+- Dropping highly correlated columns
+    ```{r}
+    remove_correlated(x, threshold = 0.99)
+    ```
+
+- Dropping constant columns
+    ```{r}
+    remove_constant(x)
+    ```
+
+- Dropping duplicated columns
+    ```{r}
+    remove_duplicate(x)
+    ```
+
+- Dropping highly sparse columns
+    ```{r}
+    remove_sparse(x, threshold = 0.9)
+    ```
+
+- Append higher order terms:
+    ```{r}
+    # Squared terms
+    transform_cols(
+      x[, 1:3], 
+      fun = function(i) i^2, 
+      which = paste0("x", 1:3), 
+      name.sep = "squared"
+    )
+    
+    # Cubed terms
+    transform_cols(
+      x[, 1:3], 
+      fun = function(i) i^3, 
+      which = paste0("x", 1:3), 
+      name.sep = "cubed"
+    )
+    ```
+
+## Piping Workflow
+
+These same pre-processing steps can be utilized in a pipeline with the magrittr
+`%>%`.
+```{r}
+library(magrittr)
+
+x %>%
+  remove_constant() %>%
+  remove_correlated(threshold = 0.99) %>%
+  remove_duplicate() %>%
+  remove_sparse(threshold = 0.9) %>%
+  transform_cols(
+    fun = function(i) i ^ 2,
+    which = paste0("x", 1:3),
+    name.sep = "squared"
+  ) %>%
+  transform_cols(
+    fun = function(i) i ^ 3,
+    which = paste0("x", 1:3),
+    name.sep = "cubed"
+  )
 ```

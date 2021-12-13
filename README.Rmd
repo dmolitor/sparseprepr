@@ -89,7 +89,7 @@ column.
     transform_cols(
       x[, 1:3], 
       fun = function(i) i^2, 
-      which = paste0("x", 1:3), 
+      which = paste0("x", 2:3), 
       name.sep = "squared"
     )
     
@@ -97,7 +97,7 @@ column.
     transform_cols(
       x[, 1:3], 
       fun = function(i) i^3, 
-      which = paste0("x", 1:3), 
+      which = paste0("x", 2:3), 
       name.sep = "cubed"
     )
     ```
@@ -116,12 +116,12 @@ x %>%
   remove_sparse(threshold = 0.9) %>%
   transform_cols(
     fun = function(i) i ^ 2,
-    which = paste0("x", 1:3),
+    which = paste0("x", 2:3),
     name.sep = "squared"
   ) %>%
   transform_cols(
     fun = function(i) i ^ 3,
-    which = paste0("x", 1:3),
+    which = paste0("x", 2:3),
     name.sep = "cubed"
   )
 ```

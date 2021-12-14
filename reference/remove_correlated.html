@@ -85,17 +85,17 @@ threshold value at which to remove columns.</p></dd>
 <span class="r-in"><span class="co"># Print x</span></span>
 <span class="r-in"><span class="va">x</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10 x 9 sparse Matrix of class "dgCMatrix"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         x1     x2     x3    x4     x5    x6     x7    x8     x9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,] 0.62  .      0.550 -0.89 -0.580 -0.89 -0.580 -0.89 -0.580</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] .     .     -2.700  .     .      .     .      .     .    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] .     .     -0.054  .     0.390  .     0.390  .     0.390</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,] .    -1.100  .      0.64 -2.600  0.64 -2.600  0.64 -2.600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,] .    -0.960  .      .     .      .     .      .     .    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] .     .      0.330  1.00  .      1.00  .      1.00  .    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,] 0.54 -0.660  0.380  .     .      .     .      .     .    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,] .     .     -1.900 -0.52  0.021 -0.52  0.021 -0.52  0.021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,] 0.60 -0.051  .      0.34 -0.088  0.34 -0.088  0.34 -0.088</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10,] .     .      2.200  .     0.540  .     0.540  .     0.540</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          x1    x2    x3    x4     x5    x6     x7    x8     x9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,] -0.65 -0.21  .    -0.26  .     -0.26  .     -0.26  .    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,]  0.64  .     .     .     .      .     .      .     .    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,]  .     .    -2.40  .    -0.110  .    -0.110  .    -0.110</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  .     .     0.16  .     .      .     .      .     .    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,]  0.87  0.38  0.31 -0.25  1.400 -0.25  1.400 -0.25  1.400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] -0.51 -1.00 -0.30 -0.55  .     -0.55  .     -0.55  .    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,]  .     .     .     .     0.820  .     0.820  .     0.820</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  .     .     2.00  .     0.066  .     0.066  .     0.066</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  .    -0.82  0.84  1.40 -0.190  1.40 -0.190  1.40 -0.190</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  .     1.40  .     1.10  .      1.10  .      1.10  .    </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Same matrix in dense format</span></span>
 <span class="r-in"><span class="va">xdense</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
@@ -103,29 +103,29 @@ threshold value at which to remove columns.</p></dd>
 <span class="r-in"><span class="co"># Drop highly correlated columns</span></span>
 <span class="r-in"><span class="fu">remove_correlated</span><span class="op">(</span><span class="va">x</span>, threshold <span class="op">=</span> <span class="fl">0.99</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10 x 5 sparse Matrix of class "dgCMatrix"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         x1     x2     x3    x4     x5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,] 0.62  .      0.550 -0.89 -0.580</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] .     .     -2.700  .     .    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] .     .     -0.054  .     0.390</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,] .    -1.100  .      0.64 -2.600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,] .    -0.960  .      .     .    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] .     .      0.330  1.00  .    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,] 0.54 -0.660  0.380  .     .    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,] .     .     -1.900 -0.52  0.021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,] 0.60 -0.051  .      0.34 -0.088</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10,] .     .      2.200  .     0.540</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          x1    x2    x3    x4     x5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,] -0.65 -0.21  .    -0.26  .    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,]  0.64  .     .     .     .    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,]  .     .    -2.40  .    -0.110</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  .     .     0.16  .     .    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,]  0.87  0.38  0.31 -0.25  1.400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] -0.51 -1.00 -0.30 -0.55  .    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,]  .     .     .     .     0.820</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  .     .     2.00  .     0.066</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  .    -0.82  0.84  1.40 -0.190</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  .     1.40  .     1.10  .    </span>
 <span class="r-in"><span class="fu">remove_correlated</span><span class="op">(</span><span class="va">xdense</span>, threshold <span class="op">=</span> <span class="fl">0.99</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         x1     x2     x3    x4     x5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,] 0.62  0.000  0.550 -0.89 -0.580</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] 0.00  0.000 -2.700  0.00  0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] 0.00  0.000 -0.054  0.00  0.390</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,] 0.00 -1.100  0.000  0.64 -2.600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,] 0.00 -0.960  0.000  0.00  0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] 0.00  0.000  0.330  1.00  0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,] 0.54 -0.660  0.380  0.00  0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,] 0.00  0.000 -1.900 -0.52  0.021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,] 0.60 -0.051  0.000  0.34 -0.088</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10,] 0.00  0.000  2.200  0.00  0.540</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          x1    x2    x3    x4     x5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,] -0.65 -0.21  0.00 -0.26  0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,]  0.64  0.00  0.00  0.00  0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,]  0.00  0.00 -2.40  0.00 -0.110</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  0.00  0.00  0.16  0.00  0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,]  0.87  0.38  0.31 -0.25  1.400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] -0.51 -1.00 -0.30 -0.55  0.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,]  0.00  0.00  0.00  0.00  0.820</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  0.00  0.00  2.00  0.00  0.066</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  0.00 -0.82  0.84  1.40 -0.190</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  0.00  1.40  0.00  1.10  0.000</span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>

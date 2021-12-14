@@ -56,5 +56,5 @@ remove_duplicate.dgCMatrix <- function(x) {
 #' @export
 remove_duplicate.matrix <- function(x) {
   idx <- duplicated(x, MARGIN = 2L)
-  x[, !idx, drop = FALSE]
+  x[, -which(idx), drop = FALSE]
 }

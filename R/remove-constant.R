@@ -60,5 +60,5 @@ remove_constant.dgCMatrix <- function(x) {
 #' @export
 remove_constant.matrix <- function(x) {
   drop_idx <- apply(x, MARGIN = 2, FUN = function(i) abs(max(i) - min(i)) == 0)
-  x[, !drop_idx, drop = FALSE]
+  x[, -which(drop_idx), drop = FALSE]
 }

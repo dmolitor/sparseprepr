@@ -53,7 +53,7 @@ remove_sparse.matrix <- function(x, threshold) {
   stopifnot(as.numeric(threshold) >= 0 && as.numeric(threshold) <= 1)
   x[
     ,
-    (1 - apply(x, 2L, Matrix::nnzero) / nrow(x) < threshold),
+    which(1 - apply(x, 2L, Matrix::nnzero) / nrow(x) < threshold),
     drop = FALSE
   ]
 }

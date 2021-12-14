@@ -51,21 +51,27 @@ colnames(x) <- c(
 ```
 
 The following toy example shows a number of the pre-processing features that
-sparseprepr provides. The matrix is shown below:
+sparseprepr provides.
 ```{r}
 library(sparseprepr)
 
 x
 ```
 
-This matrix has a number of contrived features; column `cor_with_x3` is highly 
-correlated with column `x3`, `const_col` and `const_col2` are zero-variance 
-columns, `dup_x2` is identical to `x2`, and `sparse_col` is a highly sparse 
-column.
+The matrix shown above has a number of contrived features; 
+column `cor_with_x3` is highly correlated with column `x3`, `const_col` and 
+`const_col2` are zero-variance columns, `dup_x2` is identical to `x2`, 
+and `sparse_col` is a highly sparse column. Common pre-processing steps provided
+by sparseprepr include:
 
 - Dropping highly correlated columns
     ```{r}
     remove_correlated(x, threshold = 0.99)
+    ```
+
+- Dropping empty columns
+    ```{r}
+    remove_empty(x)
     ```
 
 - Dropping constant columns
@@ -104,21 +110,19 @@ column.
 
 ## Piping Workflow
 
-These same pre-processing steps can be utilized in a pipeline with the magrittr
-`%>%`.
+These same pre-processing steps can be utilized in a more user-friendly manner
+via the magrittr pipe (`%>%`) or the base pipe (`|>` - R 4.1 or greater).
 ```{r}
-library(magrittr)
-
-x %>%
-  remove_constant() %>%
-  remove_correlated(threshold = 0.99) %>%
-  remove_duplicate() %>%
-  remove_sparse(threshold = 0.9) %>%
+x |>
+  remove_constant() |>
+  remove_correlated(threshold = 0.99) |>
+  remove_duplicate() |>
+  remove_sparse(threshold = 0.9) |>
   transform_cols(
     fun = function(i) i ^ 2,
     which = paste0("x", 2:3),
     name.sep = "squared"
-  ) %>%
+  ) |>
   transform_cols(
     fun = function(i) i ^ 3,
     which = paste0("x", 2:3),

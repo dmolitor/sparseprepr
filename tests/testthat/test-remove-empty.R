@@ -4,7 +4,7 @@ test_that("remove_empty correctly removes columns", {
   colnames(x) <- paste0("x", 1:5)
   xdense <- as.matrix(x)
 
-  expect_equal(as.matrix(remove_constant(x)), remove_constant(xdense))
-  expect_equal(colnames(remove_constant(x)), paste0("x", 2:4))
-  expect_equal(remove_constant(remove_constant(x)), remove_constant(x))
+  expect_equal(as.matrix(remove_empty(x)), remove_empty(xdense))
+  expect_equal(colnames(remove_empty(x)), paste0("x", 2:4))
+  expect_equal(remove_empty(remove_empty(x)), remove_empty(x))
 })

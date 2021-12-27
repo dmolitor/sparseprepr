@@ -32,7 +32,7 @@ Install from [Github](https://github.com) with:
 devtools::install_github("dmolitor/sparseprepr")
 ```
 
-## Core Functionality/Scope
+## Scope
 
 sparseprepr functionality only supports sparse matrices coded in sorted 
 compressed column-oriented form, formally of class `CsparseMatrix`. Although the
@@ -59,6 +59,8 @@ colnames(x) <- c(
   "sparse_col"
 )
 ```
+
+## Core Functionality
 
 The following toy example shows a number of the pre-processing features that
 sparseprepr provides.
@@ -118,7 +120,7 @@ by sparseprepr include:
     )
     ```
 
-## Piping Workflow
+## Pipe Workflow
 
 These same pre-processing steps can be utilized in a more user-friendly manner
 via the magrittr pipe (`%>%`) or the base pipe (`|>` - R 4.1 or greater).

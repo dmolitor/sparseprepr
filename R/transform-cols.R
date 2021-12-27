@@ -6,14 +6,14 @@
 #' `transform_cols()` is an S3 generic with methods for:
 #' \itemize{
 #'   \item{
-#'     \code{dgCMatrix}
+#'     \code{CsparseMatrix}
 #'   }
 #'   \item{
 #'    \code{matrix}
 #'   }
 #' }
 #'
-#' @param x A `matrix` or `dgCMatrix`.
+#' @param x A `matrix` or `CsparseMatrix`.
 #' @param fun A user-supplied function to apply to the specified columns.
 #' @param ... Additional arguments to pass to `fun`.
 #' @param which A numeric vector indicating column indices or a character vector
@@ -43,10 +43,10 @@ transform_cols <- function(x, fun, ..., which, drop, name.sep) {
   UseMethod("transform_cols")
 }
 
-#' @method transform_cols dgCMatrix
+#' @method transform_cols CsparseMatrix
 #' @rdname transform_cols
 #' @export
-transform_cols.dgCMatrix <- function(x, fun, ..., which, drop = FALSE, name.sep = NULL) {
+transform_cols.CsparseMatrix <- function(x, fun, ..., which, drop = FALSE, name.sep = NULL) {
   if (is.null(name.sep)) {
     x[, which] <- apply_sparse_mat(
       x = x[, which],

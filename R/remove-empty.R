@@ -5,14 +5,14 @@
 #' `remove_empty()` is an S3 generic with methods for:
 #' \itemize{
 #'   \item{
-#'     \code{dgCMatrix}
+#'     \code{CsparseMatrix}
 #'   }
 #'   \item{
 #'    \code{matrix}
 #'   }
 #' }
 #'
-#' @param x A `matrix` or `dgCMatrix`.
+#' @param x A `matrix` or `CsparseMatrix`.
 #'
 #' @return `x` with all-zero columns removed.
 #'
@@ -36,10 +36,10 @@ remove_empty <- function(x) {
   UseMethod("remove_empty")
 }
 
-#' @method remove_empty dgCMatrix
+#' @method remove_empty CsparseMatrix
 #' @rdname remove_empty
 #' @export
-remove_empty.dgCMatrix <- function(x) {
+remove_empty.CsparseMatrix <- function(x) {
   empty_cols <- diff(x@p) == 0
   if (!any(empty_cols)) {
     return(x)

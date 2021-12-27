@@ -2,18 +2,18 @@
 % Please edit documentation in R/remove-correlated.R
 \name{remove_correlated}
 \alias{remove_correlated}
-\alias{remove_correlated.dgCMatrix}
+\alias{remove_correlated.CsparseMatrix}
 \alias{remove_correlated.matrix}
 \title{Remove highly correlated columns}
 \usage{
 remove_correlated(x, threshold)
 
-\method{remove_correlated}{dgCMatrix}(x, threshold = 0.99)
+\method{remove_correlated}{CsparseMatrix}(x, threshold = 0.99)
 
 \method{remove_correlated}{matrix}(x, threshold = 0.99)
 }
 \arguments{
-\item{x}{A \code{matrix} or \code{dgCMatrix}.}
+\item{x}{A \code{matrix} or \code{CsparseMatrix}.}
 
 \item{threshold}{A double between 0 and 1 specifying the absolute correlation
 threshold value at which to remove columns.}
@@ -30,7 +30,7 @@ threshold.
 \code{remove_correlated()} is an S3 generic with methods for:
 \itemize{
 \item{
-\code{dgCMatrix}
+\code{CsparseMatrix}
 }
 \item{
 \code{matrix}

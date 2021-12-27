@@ -2,18 +2,18 @@
 % Please edit documentation in R/remove-empty.R
 \name{remove_empty}
 \alias{remove_empty}
-\alias{remove_empty.dgCMatrix}
+\alias{remove_empty.CsparseMatrix}
 \alias{remove_empty.matrix}
 \title{Remove empty (all-zero) columns}
 \usage{
 remove_empty(x)
 
-\method{remove_empty}{dgCMatrix}(x)
+\method{remove_empty}{CsparseMatrix}(x)
 
 \method{remove_empty}{matrix}(x)
 }
 \arguments{
-\item{x}{A \code{matrix} or \code{dgCMatrix}.}
+\item{x}{A \code{matrix} or \code{CsparseMatrix}.}
 }
 \value{
 \code{x} with all-zero columns removed.
@@ -25,7 +25,7 @@ remove_empty(x)
 \code{remove_empty()} is an S3 generic with methods for:
 \itemize{
 \item{
-\code{dgCMatrix}
+\code{CsparseMatrix}
 }
 \item{
 \code{matrix}

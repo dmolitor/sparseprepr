@@ -7,14 +7,14 @@
 #' `remove_correlated()` is an S3 generic with methods for:
 #' \itemize{
 #'   \item{
-#'     \code{dgCMatrix}
+#'     \code{CsparseMatrix}
 #'   }
 #'   \item{
 #'    \code{matrix}
 #'   }
 #' }
 #'
-#' @param x A `matrix` or `dgCMatrix`.
+#' @param x A `matrix` or `CsparseMatrix`.
 #' @param threshold A double between 0 and 1 specifying the absolute correlation
 #'   threshold value at which to remove columns.
 #'
@@ -41,10 +41,10 @@ remove_correlated <- function(x, threshold) {
   UseMethod("remove_correlated")
 }
 
-#' @method remove_correlated dgCMatrix
+#' @method remove_correlated CsparseMatrix
 #' @rdname remove_correlated
 #' @export
-remove_correlated.dgCMatrix <- function(x, threshold = 0.99) {
+remove_correlated.CsparseMatrix <- function(x, threshold = 0.99) {
   stopifnot(is.numeric(threshold), threshold >= 0, threshold <= 1)
   cor_mat <- cor(x)
   cor_mat[upper.tri(cor_mat, TRUE)] <- NA

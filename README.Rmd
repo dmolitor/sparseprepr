@@ -32,7 +32,17 @@ Install from [Github](https://github.com) with:
 devtools::install_github("dmolitor/sparseprepr")
 ```
 
-## Core Functionality
+## Core Functionality/Scope
+
+sparseprepr functionality only supports sparse matrices coded in sorted 
+compressed column-oriented form, formally of class `CsparseMatrix`. Although the
+`Matrix` package also defines sorted compressed row-oriented form 
+(`RsparseMatrix`) and triplet form (`TsparseMatrix`) sparse matrices, it makes
+clear that "most operations with sparse matrices are performed using the 
+compressed, column-oriented or CsparseMatrix representation," and that even when 
+matrices are created in the `TsparseMatrix` or `RsparseMatrix` forms for 
+convenience, "once it is created, however, the matrix is generally coerced to a 
+CsparseMatrix for further operations."
 ```{r, include = FALSE}
 x <- Matrix::rsparsematrix(10, 3, density = 0.9)
 x <- cbind(x, x[, 3, drop = FALSE])

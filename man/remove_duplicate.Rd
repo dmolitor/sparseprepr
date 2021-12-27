@@ -2,18 +2,18 @@
 % Please edit documentation in R/remove-duplicate.R
 \name{remove_duplicate}
 \alias{remove_duplicate}
-\alias{remove_duplicate.dgCMatrix}
+\alias{remove_duplicate.CsparseMatrix}
 \alias{remove_duplicate.matrix}
 \title{Remove duplicate columns}
 \usage{
 remove_duplicate(x)
 
-\method{remove_duplicate}{dgCMatrix}(x)
+\method{remove_duplicate}{CsparseMatrix}(x)
 
 \method{remove_duplicate}{matrix}(x)
 }
 \arguments{
-\item{x}{A \code{matrix} or \code{dgCMatrix}.}
+\item{x}{A \code{matrix} or \code{CsparseMatrix}.}
 }
 \value{
 \code{x} with duplicate columns removed.
@@ -26,7 +26,7 @@ matrices.
 \code{remove_duplicate()} is an S3 generic with methods for:
 \itemize{
 \item{
-\code{dgCMatrix}
+\code{CsparseMatrix}
 }
 \item{
 \code{matrix}

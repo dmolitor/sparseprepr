@@ -3,17 +3,17 @@
 \name{cor}
 \alias{cor}
 \alias{cor.default}
-\alias{cor.dgCMatrix}
+\alias{cor.CsparseMatrix}
 \title{Correlation (Sparse and Dense Matrices)}
 \usage{
 cor(x, ...)
 
 \method{cor}{default}(x, ...)
 
-\method{cor}{dgCMatrix}(x, ...)
+\method{cor}{CsparseMatrix}(x, ...)
 }
 \arguments{
-\item{x}{A \code{matrix} or \code{dgCMatrix}.}
+\item{x}{A \code{matrix} or \code{CsparseMatrix}.}
 
 \item{...}{Additional arguments to pass to methods.}
 }
@@ -30,7 +30,7 @@ dense matrices.
 \code{cor()} is an S3 generic with methods for:
 \itemize{
 \item{
-\code{dgCMatrix}
+\code{CsparseMatrix}
 }
 \item{
 Any object supported by \code{stats::cor}

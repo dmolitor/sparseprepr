@@ -6,14 +6,14 @@
 #' `cor()` is an S3 generic with methods for:
 #' \itemize{
 #'   \item{
-#'     \code{dgCMatrix}
+#'     \code{CsparseMatrix}
 #'   }
 #'   \item{
 #'    Any object supported by \code{stats::cor}
 #'   }
 #' }
 #'
-#' @param x A `matrix` or `dgCMatrix`.
+#' @param x A `matrix` or `CsparseMatrix`.
 #' @param ... Additional arguments to pass to methods.
 #'
 #' @return A `p`x`p` matrix where `p` is the number of matrix columns, and the
@@ -39,10 +39,10 @@ cor.default <- function(x, ...) {
   stats::cor(x = x, ...)
 }
 
-#' @method cor dgCMatrix
+#' @method cor CsparseMatrix
 #' @rdname cor
 #' @export
-cor.dgCMatrix <- function(x, ...) {
+cor.CsparseMatrix <- function(x, ...) {
   n <- nrow(x)
   cMeans <- Matrix::colMeans(x)
   cSums <- Matrix::colSums(x)

@@ -6,14 +6,14 @@
 #' `remove_constant()` is an S3 generic with methods for:
 #' \itemize{
 #'   \item{
-#'     \code{dgCMatrix}
+#'     \code{CsparseMatrix}
 #'   }
 #'   \item{
 #'    \code{matrix}
 #'   }
 #' }
 #'
-#' @param x A `matrix` or `dgCMatrix`.
+#' @param x A `matrix` or `CsparseMatrix`.
 #'
 #' @return `x` with zero-variance columns removed.
 #'
@@ -37,10 +37,10 @@ remove_constant <- function(x) {
   UseMethod("remove_constant")
 }
 
-#' @method remove_constant dgCMatrix
+#' @method remove_constant CsparseMatrix
 #' @rdname remove_constant
 #' @export
-remove_constant.dgCMatrix <- function(x) {
+remove_constant.CsparseMatrix <- function(x) {
   empty_cols <- diff(x@p) == 0
   full_cols <- diff(x@p) == x@Dim[[1]]
   if (any(full_cols)) {

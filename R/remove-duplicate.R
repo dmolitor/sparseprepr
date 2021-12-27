@@ -6,14 +6,14 @@
 #' `remove_duplicate()` is an S3 generic with methods for:
 #' \itemize{
 #'   \item{
-#'     \code{dgCMatrix}
+#'     \code{CsparseMatrix}
 #'   }
 #'   \item{
 #'    \code{matrix}
 #'   }
 #' }
 #'
-#' @param x A `matrix` or `dgCMatrix`.
+#' @param x A `matrix` or `CsparseMatrix`.
 #'
 #' @return `x` with duplicate columns removed.
 #'
@@ -37,10 +37,10 @@ remove_duplicate <- function(x) {
   UseMethod("remove_duplicate")
 }
 
-#' @method remove_duplicate dgCMatrix
+#' @method remove_duplicate CsparseMatrix
 #' @rdname remove_duplicate
 #' @export
-remove_duplicate.dgCMatrix <- function(x) {
+remove_duplicate.CsparseMatrix <- function(x) {
   if (ncol(x) == 0) return(x)
   J <- rep(1:ncol(x), diff(x@p))
   I <- x@i + 1

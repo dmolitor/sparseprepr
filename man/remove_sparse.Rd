@@ -2,18 +2,18 @@
 % Please edit documentation in R/remove-sparse.R
 \name{remove_sparse}
 \alias{remove_sparse}
-\alias{remove_sparse.dgCMatrix}
+\alias{remove_sparse.CsparseMatrix}
 \alias{remove_sparse.matrix}
 \title{Remove extremely sparse columns}
 \usage{
 remove_sparse(x, threshold)
 
-\method{remove_sparse}{dgCMatrix}(x, threshold)
+\method{remove_sparse}{CsparseMatrix}(x, threshold)
 
 \method{remove_sparse}{matrix}(x, threshold)
 }
 \arguments{
-\item{x}{A \code{matrix} or \code{dgCMatrix}.}
+\item{x}{A \code{matrix} or \code{CsparseMatrix}.}
 
 \item{threshold}{A double between 0 and 1 specifying the sparsity threshold
 at which to remove columns.}
@@ -29,7 +29,7 @@ sparsity value greater than a user-defined threshold.
 \code{remove_sparse()} is an S3 generic with methods for:
 \itemize{
 \item{
-\code{dgCMatrix}
+\code{CsparseMatrix}
 }
 \item{
 \code{matrix}

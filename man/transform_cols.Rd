@@ -2,18 +2,18 @@
 % Please edit documentation in R/transform-cols.R
 \name{transform_cols}
 \alias{transform_cols}
-\alias{transform_cols.dgCMatrix}
+\alias{transform_cols.CsparseMatrix}
 \alias{transform_cols.matrix}
 \title{Transform Sparse Matrix columns}
 \usage{
 transform_cols(x, fun, ..., which, drop, name.sep)
 
-\method{transform_cols}{dgCMatrix}(x, fun, ..., which, drop = FALSE, name.sep = NULL)
+\method{transform_cols}{CsparseMatrix}(x, fun, ..., which, drop = FALSE, name.sep = NULL)
 
 \method{transform_cols}{matrix}(x, fun, ..., which, drop = FALSE, name.sep = NULL)
 }
 \arguments{
-\item{x}{A \code{matrix} or \code{dgCMatrix}.}
+\item{x}{A \code{matrix} or \code{CsparseMatrix}.}
 
 \item{fun}{A user-supplied function to apply to the specified columns.}
 
@@ -42,7 +42,7 @@ function.
 \code{transform_cols()} is an S3 generic with methods for:
 \itemize{
 \item{
-\code{dgCMatrix}
+\code{CsparseMatrix}
 }
 \item{
 \code{matrix}

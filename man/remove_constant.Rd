@@ -2,18 +2,18 @@
 % Please edit documentation in R/remove-constant.R
 \name{remove_constant}
 \alias{remove_constant}
-\alias{remove_constant.dgCMatrix}
+\alias{remove_constant.CsparseMatrix}
 \alias{remove_constant.matrix}
 \title{Remove constant columns}
 \usage{
 remove_constant(x)
 
-\method{remove_constant}{dgCMatrix}(x)
+\method{remove_constant}{CsparseMatrix}(x)
 
 \method{remove_constant}{matrix}(x)
 }
 \arguments{
-\item{x}{A \code{matrix} or \code{dgCMatrix}.}
+\item{x}{A \code{matrix} or \code{CsparseMatrix}.}
 }
 \value{
 \code{x} with zero-variance columns removed.
@@ -26,7 +26,7 @@ matrices.
 \code{remove_constant()} is an S3 generic with methods for:
 \itemize{
 \item{
-\code{dgCMatrix}
+\code{CsparseMatrix}
 }
 \item{
 \code{matrix}

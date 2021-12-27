@@ -50,14 +50,14 @@ dense matrices.</p>
 <span class="co"># S3 method for default</span>
 <span class="fu">cor</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span>
 
-<span class="co"># S3 method for dgCMatrix</span>
+<span class="co"># S3 method for CsparseMatrix</span>
 <span class="fu">cor</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>x</dt>
-<dd><p>A <code>matrix</code> or <code>dgCMatrix</code>.</p></dd>
+<dd><p>A <code>matrix</code> or <code>CsparseMatrix</code>.</p></dd>
 <dt>...</dt>
 <dd><p>Additional arguments to pass to methods.</p></dd>
 </dl></div>
@@ -68,7 +68,7 @@ dense matrices.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p><code>cor()</code> is an S3 generic with methods for:</p><ul><li><p><code>dgCMatrix</code></p></li>
+    <p><code>cor()</code> is an S3 generic with methods for:</p><ul><li><p><code>CsparseMatrix</code></p></li>
 <li><p>Any object supported by <code><a href="https://rdrr.io/r/stats/cor.html" class="external-link">stats::cor</a></code></p></li>
 </ul></div>
 
@@ -79,14 +79,14 @@ dense matrices.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">cor</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]       [,3]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  1.0000000  0.1246196 -0.1124258</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  0.1246196  1.0000000 -0.2271457</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] -0.1124258 -0.2271457  1.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  1.0000000 -0.6869487  0.8564761</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.6869487  1.0000000 -0.5065216</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  0.8564761 -0.5065216  1.0000000</span>
 <span class="r-in"><span class="fu">cor</span><span class="op">(</span><span class="va">xdense</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]       [,2]       [,3]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  1.0000000  0.1246196 -0.1124258</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]  0.1246196  1.0000000 -0.2271457</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3,] -0.1124258 -0.2271457  1.0000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  1.0000000 -0.6869487  0.8564761</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] -0.6869487  1.0000000 -0.5065216</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3,]  0.8564761 -0.5065216  1.0000000</span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>

@@ -47,7 +47,7 @@ function.</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">transform_cols</span><span class="op">(</span><span class="va">x</span>, <span class="va">fun</span>, <span class="va">...</span>, <span class="va">which</span>, <span class="va">drop</span>, <span class="va">name.sep</span><span class="op">)</span>
 
-<span class="co"># S3 method for dgCMatrix</span>
+<span class="co"># S3 method for CsparseMatrix</span>
 <span class="fu">transform_cols</span><span class="op">(</span><span class="va">x</span>, <span class="va">fun</span>, <span class="va">...</span>, <span class="va">which</span>, drop <span class="op">=</span> <span class="cn">FALSE</span>, name.sep <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
 
 <span class="co"># S3 method for matrix</span>
@@ -57,7 +57,7 @@ function.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>x</dt>
-<dd><p>A <code>matrix</code> or <code>dgCMatrix</code>.</p></dd>
+<dd><p>A <code>matrix</code> or <code>CsparseMatrix</code>.</p></dd>
 <dt>fun</dt>
 <dd><p>A user-supplied function to apply to the specified columns.</p></dd>
 <dt>...</dt>
@@ -80,7 +80,7 @@ column names.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p><code>transform_cols()</code> is an S3 generic with methods for:</p><ul><li><p><code>dgCMatrix</code></p></li>
+    <p><code>transform_cols()</code> is an S3 generic with methods for:</p><ul><li><p><code>CsparseMatrix</code></p></li>
 <li><p><code>matrix</code></p></li>
 </ul></div>
 
@@ -90,57 +90,57 @@ column names.</p></dd>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">x</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10 x 4 sparse Matrix of class "dgCMatrix"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           x1     x2    x3     x4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  1.400 -1.600  0.41 -0.230</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,]  0.810 -0.086 -1.00  .    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,]  .      0.670  1.80  1.400</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  0.640  1.400 -1.00 -0.890</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,] -0.080  1.600  0.70  1.600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,]  1.700  0.180  0.25 -0.710</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,]  1.100 -1.400  0.12  .    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  0.820  0.250 -0.32  1.700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  0.048 -0.240  0.54  1.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  .      0.470  0.79 -0.084</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          x1    x2     x3    x4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  .     0.81  0.190  0.92</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] -1.50  0.26  1.100 -0.50</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] -0.11  0.48  1.000 -0.50</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  0.35  .    -0.088 -0.66</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,]  0.78 -1.70 -0.150  0.44</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] -0.95  0.15 -0.031  2.10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,] -0.82  1.20 -2.000 -0.28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  0.85  .    -0.300 -0.30</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  0.23 -0.40 -0.480  0.26</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  1.90  .    -0.170  0.48</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">transform_cols</span><span class="op">(</span><span class="va">x</span>, fun <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">i</span><span class="op">)</span> <span class="va">i</span><span class="op">^</span><span class="fl">2</span>, which <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10 x 4 sparse Matrix of class "dgCMatrix"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           x1     x2     x3       x4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  1.400 -1.600 0.1681 0.052900</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,]  0.810 -0.086 1.0000 .       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,]  .      0.670 3.2400 1.960000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  0.640  1.400 1.0000 0.792100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,] -0.080  1.600 0.4900 2.560000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,]  1.700  0.180 0.0625 0.504100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,]  1.100 -1.400 0.0144 .       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  0.820  0.250 0.1024 2.890000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  0.048 -0.240 0.2916 1.000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  .      0.470 0.6241 0.007056</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          x1    x2       x3     x4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  .     0.81 0.036100 0.8464</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] -1.50  0.26 1.210000 0.2500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] -0.11  0.48 1.000000 0.2500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  0.35  .    0.007744 0.4356</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,]  0.78 -1.70 0.022500 0.1936</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] -0.95  0.15 0.000961 4.4100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,] -0.82  1.20 4.000000 0.0784</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  0.85  .    0.090000 0.0900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  0.23 -0.40 0.230400 0.0676</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  1.90  .    0.028900 0.2304</span>
 <span class="r-in"><span class="fu">transform_cols</span><span class="op">(</span><span class="va">x</span>, fun <span class="op">=</span> <span class="va">scale</span>, which <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span>, drop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10 x 4 sparse Matrix of class "dgCMatrix"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           x1     x2          x3         x4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  1.400 -1.600  0.21349694 -0.6324968</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,]  0.810 -0.086 -1.44965604 -0.3934658</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,]  .      0.670  1.85305910  1.0615055</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  0.640  1.400 -1.44965604 -1.3184118</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,] -0.080  1.600  0.55556387  1.2693585</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,]  1.700  0.180  0.02477036 -1.1313441</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,]  1.100 -1.400 -0.12856998 -0.3934658</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  0.820  0.250 -0.64756807  1.3732851</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  0.048 -0.240  0.36683729  0.6457994</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  .      0.470  0.66172257 -0.4807641</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          x1    x2           x3          x4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  .     0.81  0.331860328  0.85404388</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] -1.50  0.26  1.399350246 -0.82101456</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] -0.11  0.48  1.282043662 -0.82101456</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  0.35  .     0.005748023 -1.00975354</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,]  0.78 -1.70 -0.066982060  0.28782694</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] -0.95  0.15  0.072612776  2.24599386</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,] -0.82  1.20 -2.237153873 -0.56149847</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  0.85  .    -0.242941936 -0.58509084</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  0.23 -0.40 -0.454093789  0.07549559</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  1.90  .    -0.090443377  0.33501169</span>
 <span class="r-in"><span class="fu">transform_cols</span><span class="op">(</span><span class="va">x</span>, fun <span class="op">=</span> <span class="va">scale</span>, which <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span>, name.sep <span class="op">=</span> <span class="st">"normalized"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10 x 6 sparse Matrix of class "dgCMatrix"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           x1     x2    x3     x4 x3_normalized x4_normalized</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  1.400 -1.600  0.41 -0.230    0.21349694    -0.6324968</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,]  0.810 -0.086 -1.00  .       -1.44965604    -0.3934658</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,]  .      0.670  1.80  1.400    1.85305910     1.0615055</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  0.640  1.400 -1.00 -0.890   -1.44965604    -1.3184118</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,] -0.080  1.600  0.70  1.600    0.55556387     1.2693585</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,]  1.700  0.180  0.25 -0.710    0.02477036    -1.1313441</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,]  1.100 -1.400  0.12  .       -0.12856998    -0.3934658</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  0.820  0.250 -0.32  1.700   -0.64756807     1.3732851</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  0.048 -0.240  0.54  1.000    0.36683729     0.6457994</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  .      0.470  0.79 -0.084    0.66172257    -0.4807641</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          x1    x2     x3    x4 x3_normalized x4_normalized</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  .     0.81  0.190  0.92   0.331860328    0.85404388</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] -1.50  0.26  1.100 -0.50   1.399350246   -0.82101456</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] -0.11  0.48  1.000 -0.50   1.282043662   -0.82101456</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  0.35  .    -0.088 -0.66   0.005748023   -1.00975354</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,]  0.78 -1.70 -0.150  0.44  -0.066982060    0.28782694</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] -0.95  0.15 -0.031  2.10   0.072612776    2.24599386</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,] -0.82  1.20 -2.000 -0.28  -2.237153873   -0.56149847</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  0.85  .    -0.300 -0.30  -0.242941936   -0.58509084</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  0.23 -0.40 -0.480  0.26  -0.454093789    0.07549559</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  1.90  .    -0.170  0.48  -0.090443377    0.33501169</span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>

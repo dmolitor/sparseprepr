@@ -81,17 +81,17 @@
 
 <span class="va">x</span>
 <span class="co">#&gt; 10 x 8 sparse Matrix of class "dgCMatrix"</span>
-<span class="co">#&gt;          x1    x2     x3 cor_with_x3 const_col const_col2 dup_x2 sparse_col</span>
-<span class="co">#&gt;  [1,]  .     0.66 -0.400      -0.400         1          .   0.66          .</span>
-<span class="co">#&gt;  [2,]  .     .     .           .             1          .   .             .</span>
-<span class="co">#&gt;  [3,] -0.56 -1.10  0.500       0.500         1          .  -1.10          .</span>
-<span class="co">#&gt;  [4,] -0.27 -0.46  0.096       0.096         1          .  -0.46          .</span>
-<span class="co">#&gt;  [5,] -0.94  .     .           .             1          .   .             .</span>
-<span class="co">#&gt;  [6,]  0.68 -1.90 -0.110      -0.110         1          .  -1.90          .</span>
-<span class="co">#&gt;  [7,]  1.20  1.60  .           .             1          .   1.60          .</span>
-<span class="co">#&gt;  [8,]  .     2.80  .           .             1          .   2.80          .</span>
-<span class="co">#&gt;  [9,]  .     1.50  .           .             1          .   1.50          .</span>
-<span class="co">#&gt; [10,] -0.19  0.11  0.100       .             1          .   0.11          1</span></code></pre></div>
+<span class="co">#&gt;           x1    x2     x3 cor_with_x3 const_col const_col2 dup_x2 sparse_col</span>
+<span class="co">#&gt;  [1,]  2.100 -0.79 -0.810       -0.81         1          .  -0.79          .</span>
+<span class="co">#&gt;  [2,]  0.051  1.50  1.400        1.40         1          .   1.50          .</span>
+<span class="co">#&gt;  [3,]  .     -0.51 -0.970       -0.97         1          .  -0.51          .</span>
+<span class="co">#&gt;  [4,]  .      1.70  0.220        0.22         1          .   1.70          .</span>
+<span class="co">#&gt;  [5,]  0.740  1.60 -0.470       -0.47         1          .   1.60          .</span>
+<span class="co">#&gt;  [6,] -0.065  0.24 -1.500       -1.50         1          .   0.24          .</span>
+<span class="co">#&gt;  [7,]  0.110 -0.11 -0.340       -0.34         1          .  -0.11          .</span>
+<span class="co">#&gt;  [8,]  0.640  0.92 -1.400       -1.40         1          .   0.92          .</span>
+<span class="co">#&gt;  [9,] -1.600 -1.10  1.200        1.20         1          .  -1.10          .</span>
+<span class="co">#&gt; [10,]  0.240  .     1.101        1.10         1          .   .             1</span></code></pre></div>
 <p>The matrix shown above has a number of contrived features; column <code>cor_with_x3</code> is highly correlated with column <code>x3</code>, <code>const_col</code> and <code>const_col2</code> are zero-variance columns, <code>dup_x2</code> is identical to <code>x2</code>, and <code>sparse_col</code> is a highly sparse column. Common pre-processing steps provided by sparseprepr include:</p>
 <ul>
 <li>
@@ -99,86 +99,86 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/remove_correlated.html">remove_correlated</a></span><span class="op">(</span><span class="va">x</span>, threshold <span class="op">=</span> <span class="fl">0.99</span><span class="op">)</span>
 <span class="co">#&gt; Warning: Column(s) 5, 6 have a standard deviation of 0</span>
-<span class="co">#&gt; 10 x 7 sparse Matrix of class "dgCMatrix"</span>
-<span class="co">#&gt;          x1    x2     x3 cor_with_x3 const_col const_col2 sparse_col</span>
-<span class="co">#&gt;  [1,]  .     0.66 -0.400      -0.400         1          .          .</span>
-<span class="co">#&gt;  [2,]  .     .     .           .             1          .          .</span>
-<span class="co">#&gt;  [3,] -0.56 -1.10  0.500       0.500         1          .          .</span>
-<span class="co">#&gt;  [4,] -0.27 -0.46  0.096       0.096         1          .          .</span>
-<span class="co">#&gt;  [5,] -0.94  .     .           .             1          .          .</span>
-<span class="co">#&gt;  [6,]  0.68 -1.90 -0.110      -0.110         1          .          .</span>
-<span class="co">#&gt;  [7,]  1.20  1.60  .           .             1          .          .</span>
-<span class="co">#&gt;  [8,]  .     2.80  .           .             1          .          .</span>
-<span class="co">#&gt;  [9,]  .     1.50  .           .             1          .          .</span>
-<span class="co">#&gt; [10,] -0.19  0.11  0.100       .             1          .          1</span></code></pre></div>
+<span class="co">#&gt; 10 x 6 sparse Matrix of class "dgCMatrix"</span>
+<span class="co">#&gt;           x1    x2     x3 const_col const_col2 sparse_col</span>
+<span class="co">#&gt;  [1,]  2.100 -0.79 -0.810         1          .          .</span>
+<span class="co">#&gt;  [2,]  0.051  1.50  1.400         1          .          .</span>
+<span class="co">#&gt;  [3,]  .     -0.51 -0.970         1          .          .</span>
+<span class="co">#&gt;  [4,]  .      1.70  0.220         1          .          .</span>
+<span class="co">#&gt;  [5,]  0.740  1.60 -0.470         1          .          .</span>
+<span class="co">#&gt;  [6,] -0.065  0.24 -1.500         1          .          .</span>
+<span class="co">#&gt;  [7,]  0.110 -0.11 -0.340         1          .          .</span>
+<span class="co">#&gt;  [8,]  0.640  0.92 -1.400         1          .          .</span>
+<span class="co">#&gt;  [9,] -1.600 -1.10  1.200         1          .          .</span>
+<span class="co">#&gt; [10,]  0.240  .     1.101         1          .          1</span></code></pre></div>
 </li>
 <li>
 <p>Dropping empty columns</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/remove_empty.html">remove_empty</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
 <span class="co">#&gt; 10 x 7 sparse Matrix of class "dgCMatrix"</span>
-<span class="co">#&gt;          x1    x2     x3 cor_with_x3 const_col dup_x2 sparse_col</span>
-<span class="co">#&gt;  [1,]  .     0.66 -0.400      -0.400         1   0.66          .</span>
-<span class="co">#&gt;  [2,]  .     .     .           .             1   .             .</span>
-<span class="co">#&gt;  [3,] -0.56 -1.10  0.500       0.500         1  -1.10          .</span>
-<span class="co">#&gt;  [4,] -0.27 -0.46  0.096       0.096         1  -0.46          .</span>
-<span class="co">#&gt;  [5,] -0.94  .     .           .             1   .             .</span>
-<span class="co">#&gt;  [6,]  0.68 -1.90 -0.110      -0.110         1  -1.90          .</span>
-<span class="co">#&gt;  [7,]  1.20  1.60  .           .             1   1.60          .</span>
-<span class="co">#&gt;  [8,]  .     2.80  .           .             1   2.80          .</span>
-<span class="co">#&gt;  [9,]  .     1.50  .           .             1   1.50          .</span>
-<span class="co">#&gt; [10,] -0.19  0.11  0.100       .             1   0.11          1</span></code></pre></div>
+<span class="co">#&gt;           x1    x2     x3 cor_with_x3 const_col dup_x2 sparse_col</span>
+<span class="co">#&gt;  [1,]  2.100 -0.79 -0.810       -0.81         1  -0.79          .</span>
+<span class="co">#&gt;  [2,]  0.051  1.50  1.400        1.40         1   1.50          .</span>
+<span class="co">#&gt;  [3,]  .     -0.51 -0.970       -0.97         1  -0.51          .</span>
+<span class="co">#&gt;  [4,]  .      1.70  0.220        0.22         1   1.70          .</span>
+<span class="co">#&gt;  [5,]  0.740  1.60 -0.470       -0.47         1   1.60          .</span>
+<span class="co">#&gt;  [6,] -0.065  0.24 -1.500       -1.50         1   0.24          .</span>
+<span class="co">#&gt;  [7,]  0.110 -0.11 -0.340       -0.34         1  -0.11          .</span>
+<span class="co">#&gt;  [8,]  0.640  0.92 -1.400       -1.40         1   0.92          .</span>
+<span class="co">#&gt;  [9,] -1.600 -1.10  1.200        1.20         1  -1.10          .</span>
+<span class="co">#&gt; [10,]  0.240  .     1.101        1.10         1   .             1</span></code></pre></div>
 </li>
 <li>
 <p>Dropping constant columns</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/remove_constant.html">remove_constant</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
 <span class="co">#&gt; 10 x 6 sparse Matrix of class "dgCMatrix"</span>
-<span class="co">#&gt;          x1    x2     x3 cor_with_x3 dup_x2 sparse_col</span>
-<span class="co">#&gt;  [1,]  .     0.66 -0.400      -0.400   0.66          .</span>
-<span class="co">#&gt;  [2,]  .     .     .           .       .             .</span>
-<span class="co">#&gt;  [3,] -0.56 -1.10  0.500       0.500  -1.10          .</span>
-<span class="co">#&gt;  [4,] -0.27 -0.46  0.096       0.096  -0.46          .</span>
-<span class="co">#&gt;  [5,] -0.94  .     .           .       .             .</span>
-<span class="co">#&gt;  [6,]  0.68 -1.90 -0.110      -0.110  -1.90          .</span>
-<span class="co">#&gt;  [7,]  1.20  1.60  .           .       1.60          .</span>
-<span class="co">#&gt;  [8,]  .     2.80  .           .       2.80          .</span>
-<span class="co">#&gt;  [9,]  .     1.50  .           .       1.50          .</span>
-<span class="co">#&gt; [10,] -0.19  0.11  0.100       .       0.11          1</span></code></pre></div>
+<span class="co">#&gt;           x1    x2     x3 cor_with_x3 dup_x2 sparse_col</span>
+<span class="co">#&gt;  [1,]  2.100 -0.79 -0.810       -0.81  -0.79          .</span>
+<span class="co">#&gt;  [2,]  0.051  1.50  1.400        1.40   1.50          .</span>
+<span class="co">#&gt;  [3,]  .     -0.51 -0.970       -0.97  -0.51          .</span>
+<span class="co">#&gt;  [4,]  .      1.70  0.220        0.22   1.70          .</span>
+<span class="co">#&gt;  [5,]  0.740  1.60 -0.470       -0.47   1.60          .</span>
+<span class="co">#&gt;  [6,] -0.065  0.24 -1.500       -1.50   0.24          .</span>
+<span class="co">#&gt;  [7,]  0.110 -0.11 -0.340       -0.34  -0.11          .</span>
+<span class="co">#&gt;  [8,]  0.640  0.92 -1.400       -1.40   0.92          .</span>
+<span class="co">#&gt;  [9,] -1.600 -1.10  1.200        1.20  -1.10          .</span>
+<span class="co">#&gt; [10,]  0.240  .     1.101        1.10   .             1</span></code></pre></div>
 </li>
 <li>
 <p>Dropping duplicated columns</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/remove_duplicate.html">remove_duplicate</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
 <span class="co">#&gt; 10 x 7 sparse Matrix of class "dgCMatrix"</span>
-<span class="co">#&gt;          x1    x2     x3 cor_with_x3 const_col const_col2 sparse_col</span>
-<span class="co">#&gt;  [1,]  .     0.66 -0.400      -0.400         1          .          .</span>
-<span class="co">#&gt;  [2,]  .     .     .           .             1          .          .</span>
-<span class="co">#&gt;  [3,] -0.56 -1.10  0.500       0.500         1          .          .</span>
-<span class="co">#&gt;  [4,] -0.27 -0.46  0.096       0.096         1          .          .</span>
-<span class="co">#&gt;  [5,] -0.94  .     .           .             1          .          .</span>
-<span class="co">#&gt;  [6,]  0.68 -1.90 -0.110      -0.110         1          .          .</span>
-<span class="co">#&gt;  [7,]  1.20  1.60  .           .             1          .          .</span>
-<span class="co">#&gt;  [8,]  .     2.80  .           .             1          .          .</span>
-<span class="co">#&gt;  [9,]  .     1.50  .           .             1          .          .</span>
-<span class="co">#&gt; [10,] -0.19  0.11  0.100       .             1          .          1</span></code></pre></div>
+<span class="co">#&gt;           x1    x2     x3 cor_with_x3 const_col const_col2 sparse_col</span>
+<span class="co">#&gt;  [1,]  2.100 -0.79 -0.810       -0.81         1          .          .</span>
+<span class="co">#&gt;  [2,]  0.051  1.50  1.400        1.40         1          .          .</span>
+<span class="co">#&gt;  [3,]  .     -0.51 -0.970       -0.97         1          .          .</span>
+<span class="co">#&gt;  [4,]  .      1.70  0.220        0.22         1          .          .</span>
+<span class="co">#&gt;  [5,]  0.740  1.60 -0.470       -0.47         1          .          .</span>
+<span class="co">#&gt;  [6,] -0.065  0.24 -1.500       -1.50         1          .          .</span>
+<span class="co">#&gt;  [7,]  0.110 -0.11 -0.340       -0.34         1          .          .</span>
+<span class="co">#&gt;  [8,]  0.640  0.92 -1.400       -1.40         1          .          .</span>
+<span class="co">#&gt;  [9,] -1.600 -1.10  1.200        1.20         1          .          .</span>
+<span class="co">#&gt; [10,]  0.240  .     1.101        1.10         1          .          1</span></code></pre></div>
 </li>
 <li>
 <p>Dropping highly sparse columns</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/remove_sparse.html">remove_sparse</a></span><span class="op">(</span><span class="va">x</span>, threshold <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span>
 <span class="co">#&gt; 10 x 6 sparse Matrix of class "dgCMatrix"</span>
-<span class="co">#&gt;          x1    x2     x3 cor_with_x3 const_col dup_x2</span>
-<span class="co">#&gt;  [1,]  .     0.66 -0.400      -0.400         1   0.66</span>
-<span class="co">#&gt;  [2,]  .     .     .           .             1   .   </span>
-<span class="co">#&gt;  [3,] -0.56 -1.10  0.500       0.500         1  -1.10</span>
-<span class="co">#&gt;  [4,] -0.27 -0.46  0.096       0.096         1  -0.46</span>
-<span class="co">#&gt;  [5,] -0.94  .     .           .             1   .   </span>
-<span class="co">#&gt;  [6,]  0.68 -1.90 -0.110      -0.110         1  -1.90</span>
-<span class="co">#&gt;  [7,]  1.20  1.60  .           .             1   1.60</span>
-<span class="co">#&gt;  [8,]  .     2.80  .           .             1   2.80</span>
-<span class="co">#&gt;  [9,]  .     1.50  .           .             1   1.50</span>
-<span class="co">#&gt; [10,] -0.19  0.11  0.100       .             1   0.11</span></code></pre></div>
+<span class="co">#&gt;           x1    x2     x3 cor_with_x3 const_col dup_x2</span>
+<span class="co">#&gt;  [1,]  2.100 -0.79 -0.810       -0.81         1  -0.79</span>
+<span class="co">#&gt;  [2,]  0.051  1.50  1.400        1.40         1   1.50</span>
+<span class="co">#&gt;  [3,]  .     -0.51 -0.970       -0.97         1  -0.51</span>
+<span class="co">#&gt;  [4,]  .      1.70  0.220        0.22         1   1.70</span>
+<span class="co">#&gt;  [5,]  0.740  1.60 -0.470       -0.47         1   1.60</span>
+<span class="co">#&gt;  [6,] -0.065  0.24 -1.500       -1.50         1   0.24</span>
+<span class="co">#&gt;  [7,]  0.110 -0.11 -0.340       -0.34         1  -0.11</span>
+<span class="co">#&gt;  [8,]  0.640  0.92 -1.400       -1.40         1   0.92</span>
+<span class="co">#&gt;  [9,] -1.600 -1.10  1.200        1.20         1  -1.10</span>
+<span class="co">#&gt; [10,]  0.240  .     1.101        1.10         1   .</span></code></pre></div>
 </li>
 <li>
 <p>Transforming matrix columns:</p>
@@ -191,17 +191,17 @@
   name.sep <span class="op">=</span> <span class="st">"squared"</span>
 <span class="op">)</span>
 <span class="co">#&gt; 10 x 5 sparse Matrix of class "dgCMatrix"</span>
-<span class="co">#&gt;          x1    x2     x3 x2_squared x3_squared</span>
-<span class="co">#&gt;  [1,]  .     0.66 -0.400     0.4356   0.160000</span>
-<span class="co">#&gt;  [2,]  .     .     .         .        .       </span>
-<span class="co">#&gt;  [3,] -0.56 -1.10  0.500     1.2100   0.250000</span>
-<span class="co">#&gt;  [4,] -0.27 -0.46  0.096     0.2116   0.009216</span>
-<span class="co">#&gt;  [5,] -0.94  .     .         .        .       </span>
-<span class="co">#&gt;  [6,]  0.68 -1.90 -0.110     3.6100   0.012100</span>
-<span class="co">#&gt;  [7,]  1.20  1.60  .         2.5600   .       </span>
-<span class="co">#&gt;  [8,]  .     2.80  .         7.8400   .       </span>
-<span class="co">#&gt;  [9,]  .     1.50  .         2.2500   .       </span>
-<span class="co">#&gt; [10,] -0.19  0.11  0.100     0.0121   0.010000</span>
+<span class="co">#&gt;           x1    x2     x3 x2_squared x3_squared</span>
+<span class="co">#&gt;  [1,]  2.100 -0.79 -0.810     0.6241   0.656100</span>
+<span class="co">#&gt;  [2,]  0.051  1.50  1.400     2.2500   1.960000</span>
+<span class="co">#&gt;  [3,]  .     -0.51 -0.970     0.2601   0.940900</span>
+<span class="co">#&gt;  [4,]  .      1.70  0.220     2.8900   0.048400</span>
+<span class="co">#&gt;  [5,]  0.740  1.60 -0.470     2.5600   0.220900</span>
+<span class="co">#&gt;  [6,] -0.065  0.24 -1.500     0.0576   2.250000</span>
+<span class="co">#&gt;  [7,]  0.110 -0.11 -0.340     0.0121   0.115600</span>
+<span class="co">#&gt;  [8,]  0.640  0.92 -1.400     0.8464   1.960000</span>
+<span class="co">#&gt;  [9,] -1.600 -1.10  1.200     1.2100   1.440000</span>
+<span class="co">#&gt; [10,]  0.240  .     1.101     .        1.212201</span>
 
 <span class="co"># Append cubed terms</span>
 <span class="fu"><a href="reference/transform_cols.html">transform_cols</a></span><span class="op">(</span>
@@ -211,17 +211,17 @@
   name.sep <span class="op">=</span> <span class="st">"cubed"</span>
 <span class="op">)</span>
 <span class="co">#&gt; 10 x 5 sparse Matrix of class "dgCMatrix"</span>
-<span class="co">#&gt;          x1    x2     x3  x2_cubed     x3_cubed</span>
-<span class="co">#&gt;  [1,]  .     0.66 -0.400  0.287496 -0.064000000</span>
-<span class="co">#&gt;  [2,]  .     .     .      .         .          </span>
-<span class="co">#&gt;  [3,] -0.56 -1.10  0.500 -1.331000  0.125000000</span>
-<span class="co">#&gt;  [4,] -0.27 -0.46  0.096 -0.097336  0.000884736</span>
-<span class="co">#&gt;  [5,] -0.94  .     .      .         .          </span>
-<span class="co">#&gt;  [6,]  0.68 -1.90 -0.110 -6.859000 -0.001331000</span>
-<span class="co">#&gt;  [7,]  1.20  1.60  .      4.096000  .          </span>
-<span class="co">#&gt;  [8,]  .     2.80  .     21.952000  .          </span>
-<span class="co">#&gt;  [9,]  .     1.50  .      3.375000  .          </span>
-<span class="co">#&gt; [10,] -0.19  0.11  0.100  0.001331  0.001000000</span></code></pre></div>
+<span class="co">#&gt;           x1    x2     x3  x2_cubed  x3_cubed</span>
+<span class="co">#&gt;  [1,]  2.100 -0.79 -0.810 -0.493039 -0.531441</span>
+<span class="co">#&gt;  [2,]  0.051  1.50  1.400  3.375000  2.744000</span>
+<span class="co">#&gt;  [3,]  .     -0.51 -0.970 -0.132651 -0.912673</span>
+<span class="co">#&gt;  [4,]  .      1.70  0.220  4.913000  0.010648</span>
+<span class="co">#&gt;  [5,]  0.740  1.60 -0.470  4.096000 -0.103823</span>
+<span class="co">#&gt;  [6,] -0.065  0.24 -1.500  0.013824 -3.375000</span>
+<span class="co">#&gt;  [7,]  0.110 -0.11 -0.340 -0.001331 -0.039304</span>
+<span class="co">#&gt;  [8,]  0.640  0.92 -1.400  0.778688 -2.744000</span>
+<span class="co">#&gt;  [9,] -1.600 -1.10  1.200 -1.331000  1.728000</span>
+<span class="co">#&gt; [10,]  0.240  .     1.101  .         1.334633</span></code></pre></div>
 </li>
 </ul>
 </div>
@@ -245,29 +245,18 @@
     which <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>,
     name.sep <span class="op">=</span> <span class="st">"cubed"</span>
   <span class="op">)</span>
-<span class="co">#&gt; 10 x 8 sparse Matrix of class "dgCMatrix"</span>
-<span class="co">#&gt;          x1    x2     x3 cor_with_x3 x2_squared x3_squared  x2_cubed</span>
-<span class="co">#&gt;  [1,]  .     0.66 -0.400      -0.400     0.4356   0.160000  0.287496</span>
-<span class="co">#&gt;  [2,]  .     .     .           .         .        .         .       </span>
-<span class="co">#&gt;  [3,] -0.56 -1.10  0.500       0.500     1.2100   0.250000 -1.331000</span>
-<span class="co">#&gt;  [4,] -0.27 -0.46  0.096       0.096     0.2116   0.009216 -0.097336</span>
-<span class="co">#&gt;  [5,] -0.94  .     .           .         .        .         .       </span>
-<span class="co">#&gt;  [6,]  0.68 -1.90 -0.110      -0.110     3.6100   0.012100 -6.859000</span>
-<span class="co">#&gt;  [7,]  1.20  1.60  .           .         2.5600   .         4.096000</span>
-<span class="co">#&gt;  [8,]  .     2.80  .           .         7.8400   .        21.952000</span>
-<span class="co">#&gt;  [9,]  .     1.50  .           .         2.2500   .         3.375000</span>
-<span class="co">#&gt; [10,] -0.19  0.11  0.100       .         0.0121   0.010000  0.001331</span>
-<span class="co">#&gt;           x3_cubed</span>
-<span class="co">#&gt;  [1,] -0.064000000</span>
-<span class="co">#&gt;  [2,]  .          </span>
-<span class="co">#&gt;  [3,]  0.125000000</span>
-<span class="co">#&gt;  [4,]  0.000884736</span>
-<span class="co">#&gt;  [5,]  .          </span>
-<span class="co">#&gt;  [6,] -0.001331000</span>
-<span class="co">#&gt;  [7,]  .          </span>
-<span class="co">#&gt;  [8,]  .          </span>
-<span class="co">#&gt;  [9,]  .          </span>
-<span class="co">#&gt; [10,]  0.001000000</span></code></pre></div>
+<span class="co">#&gt; 10 x 7 sparse Matrix of class "dgCMatrix"</span>
+<span class="co">#&gt;           x1    x2     x3 x2_squared x3_squared  x2_cubed  x3_cubed</span>
+<span class="co">#&gt;  [1,]  2.100 -0.79 -0.810     0.6241   0.656100 -0.493039 -0.531441</span>
+<span class="co">#&gt;  [2,]  0.051  1.50  1.400     2.2500   1.960000  3.375000  2.744000</span>
+<span class="co">#&gt;  [3,]  .     -0.51 -0.970     0.2601   0.940900 -0.132651 -0.912673</span>
+<span class="co">#&gt;  [4,]  .      1.70  0.220     2.8900   0.048400  4.913000  0.010648</span>
+<span class="co">#&gt;  [5,]  0.740  1.60 -0.470     2.5600   0.220900  4.096000 -0.103823</span>
+<span class="co">#&gt;  [6,] -0.065  0.24 -1.500     0.0576   2.250000  0.013824 -3.375000</span>
+<span class="co">#&gt;  [7,]  0.110 -0.11 -0.340     0.0121   0.115600 -0.001331 -0.039304</span>
+<span class="co">#&gt;  [8,]  0.640  0.92 -1.400     0.8464   1.960000  0.778688 -2.744000</span>
+<span class="co">#&gt;  [9,] -1.600 -1.10  1.200     1.2100   1.440000 -1.331000  1.728000</span>
+<span class="co">#&gt; [10,]  0.240  .     1.101     .        1.212201  .         1.334633</span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">

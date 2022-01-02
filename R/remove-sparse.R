@@ -42,7 +42,9 @@ remove_sparse <- function(x, threshold) {
 #' @rdname remove_sparse
 #' @export
 remove_sparse.CsparseMatrix <- function(x, threshold) {
-  stopifnot(as.numeric(threshold) >= 0 && as.numeric(threshold) <= 1)
+  if (!(as.numeric(threshold) >= 0 && as.numeric(threshold) <= 1)) {
+    abort("`threshold` must be in [0, 1]")
+  }
   x[, (1 - diff(x@p) / x@Dim[[1]] < threshold), drop = FALSE]
 }
 
@@ -50,7 +52,9 @@ remove_sparse.CsparseMatrix <- function(x, threshold) {
 #' @rdname remove_sparse
 #' @export
 remove_sparse.matrix <- function(x, threshold) {
-  stopifnot(as.numeric(threshold) >= 0 && as.numeric(threshold) <= 1)
+  if (!(as.numeric(threshold) >= 0 && as.numeric(threshold) <= 1)) {
+    abort("`threshold` must be in [0, 1]")
+  }
   x[
     ,
     which(1 - apply(x, 2L, Matrix::nnzero) / nrow(x) < threshold),

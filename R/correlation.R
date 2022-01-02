@@ -55,11 +55,10 @@ cor.CsparseMatrix <- function(x, ...) {
   sdvec <- sqrt(Matrix::diag(covmat)) # standard deviations of columns
   if (any(sdvec == 0)) {
     zerovar <- which(sdvec == 0)
-    warning(
+    warn(
       paste("Column(s)",
             paste(zerovar, collapse = ", "),
-            "have a standard deviation of 0"),
-      call. = FALSE
+            "have a standard deviation of 0")
     )
     cprod <- Matrix::crossprod(Matrix::t(sdvec))
     cprod[cprod == 0] <- NA

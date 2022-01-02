@@ -15,7 +15,7 @@ apply_sparse_mat <- function(x, .f, ..., drop = FALSE, append.names = NULL, simp
     if (length(append.names) == 1 || length(append.names) == num_cols) {
       col.names <- paste0(col.names, "_", append.names)
     } else {
-      rlang::warn(
+      warn(
         paste0(
           "`name.sep` must be length 1 or ",
           num_cols,

@@ -6,11 +6,11 @@
 \alias{transform_cols.matrix}
 \title{Transform Sparse Matrix columns}
 \usage{
-transform_cols(x, fun, ..., which, drop, name.sep)
+transform_cols(x, fun, ..., which.cols, drop, name.sep)
 
-\method{transform_cols}{CsparseMatrix}(x, fun, ..., which, drop = FALSE, name.sep = NULL)
+\method{transform_cols}{CsparseMatrix}(x, fun, ..., which.cols, drop = FALSE, name.sep = NULL)
 
-\method{transform_cols}{matrix}(x, fun, ..., which, drop = FALSE, name.sep = NULL)
+\method{transform_cols}{matrix}(x, fun, ..., which.cols, drop = FALSE, name.sep = NULL)
 }
 \arguments{
 \item{x}{A \code{matrix} or \code{CsparseMatrix}.}
@@ -19,8 +19,8 @@ transform_cols(x, fun, ..., which, drop, name.sep)
 
 \item{...}{Additional arguments to pass to \code{fun}.}
 
-\item{which}{A numeric vector indicating column indices or a character vector
-indicating column names.}
+\item{which.cols}{A numeric vector indicating column indices or a character
+vector indicating column names.}
 
 \item{drop}{A logical value. If \code{fun} works with columnar matrices, then set
 \code{drop = FALSE}, otherwise if \code{fun} requires a numeric vector set
@@ -54,8 +54,8 @@ x <- Matrix::rsparsematrix(10, 4, .9)
 colnames(x) <- paste0("x", 1:4)
 x
 
-transform_cols(x, fun = function(i) i^2, which = paste0("x", 3:4))
-transform_cols(x, fun = scale, which = 3:4, drop = TRUE)
-transform_cols(x, fun = scale, which = 3:4, name.sep = "normalized")
+transform_cols(x, fun = function(i) i^2, which.cols = paste0("x", 3:4))
+transform_cols(x, fun = scale, which.cols = 3:4, drop = TRUE)
+transform_cols(x, fun = scale, which.cols = 3:4, name.sep = "normalized")
 
 }

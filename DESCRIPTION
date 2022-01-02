@@ -1,6 +1,6 @@
 Package: sparseprepr
 Title: Pre Processing for Sparse Matrices
-Version: 0.0.0.9003
+Version: 0.0.0.9004
 Authors@R: 
     person(given = "Daniel",
            family = "Molitor",
@@ -17,7 +17,8 @@ RoxygenNote: 7.1.2
 Depends:
     R (>= 3.1.0)
 Imports:
-    Matrix
+    Matrix,
+    rlang
 Suggests: 
     covr,
     testthat (>= 3.0.0)

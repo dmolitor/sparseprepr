@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">sparseprepr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9003</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9004</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,47 +75,47 @@
 <span class="r-in"><span class="co"># Print x</span></span>
 <span class="r-in"><span class="va">x</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10 x 4 sparse Matrix of class "dgCMatrix"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         x1    x2   x3 x4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  .    .     .    .</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,]  .    .     .    .</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] -2.5  .     .    .</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  .    .     .    .</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,]  .    .     .    .</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,]  .    .     .    .</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,]  .    .     .    .</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  .    .     .    .</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  .   -0.19 -1.6  .</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  .    .     .    .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       x1  x2    x3 x4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  . .    .     .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,]  . .    .     .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,]  . .   -0.86  .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  . .    .     .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,]  . .    .     .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,]  . 1.7  .     .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,]  . .    .     .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  . .    .     .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  . .    .     .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  . .   -0.90  .</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Same matrix in dense format</span></span>
 <span class="r-in"><span class="va">xdense</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Drop empty columns</span></span>
 <span class="r-in"><span class="fu">remove_empty</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 x 3 sparse Matrix of class "dgCMatrix"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         x1    x2   x3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  .    .     .  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,]  .    .     .  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] -2.5  .     .  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  .    .     .  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,]  .    .     .  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,]  .    .     .  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,]  .    .     .  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  .    .     .  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  .   -0.19 -1.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  .    .     .  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 x 2 sparse Matrix of class "dgCMatrix"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        x2    x3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,] .    .   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] .    .   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] .   -0.86</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,] .    .   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,] .    .   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] 1.7  .   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,] .    .   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,] .    .   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,] .    .   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10,] .   -0.90</span>
 <span class="r-in"><span class="fu">remove_empty</span><span class="op">(</span><span class="va">xdense</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         x1    x2   x3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  0.0  0.00  0.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,]  0.0  0.00  0.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] -2.5  0.00  0.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  0.0  0.00  0.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,]  0.0  0.00  0.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,]  0.0  0.00  0.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,]  0.0  0.00  0.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  0.0  0.00  0.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  0.0 -0.19 -1.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]  0.0  0.00  0.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        x2    x3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,] 0.0  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] 0.0  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] 0.0 -0.86</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,] 0.0  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,] 0.0  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] 1.7  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,] 0.0  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,] 0.0  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,] 0.0  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10,] 0.0 -0.90</span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>

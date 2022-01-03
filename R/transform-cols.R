@@ -119,7 +119,7 @@ convert_cols_to_index <- function(which.cols, dat) {
   which(vals %in% which.cols)
 }
 
-#' Transform Sparse Matrix columns
+#' Transform matrix columns
 #'
 #' `transform_cols()` transforms specified matrix columns with a user-supplied
 #' function.
@@ -152,7 +152,7 @@ convert_cols_to_index <- function(which.cols, dat) {
 #'   in-place, provided `length(fns) == 1`. If `fns` has more than one element,
 #'   and `name.sep` is `NULL`, it will default to a numeric vector that is equal
 #'   to `length(fns)`. If `name.sep` is provided as a list, each element of this
-#'   list must contain a character vector of length 1 or `nrow(x)` that will
+#'   list must contain a character vector of length 1 or `ncol(x)` that will
 #'   be appended to existing column names to create new column names. Providing
 #'   this argument ensures that the transformed columns will be appended as new
 #'   matrix columns.

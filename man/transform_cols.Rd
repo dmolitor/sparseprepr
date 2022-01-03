@@ -4,7 +4,7 @@
 \alias{transform_cols}
 \alias{transform_cols.CsparseMatrix}
 \alias{transform_cols.matrix}
-\title{Transform Sparse Matrix columns}
+\title{Transform matrix columns}
 \usage{
 transform_cols(x, fns, ..., which.cols, drop, name.sep)
 
@@ -36,7 +36,7 @@ be much more memory intensive.}
 in-place, provided \code{length(fns) == 1}. If \code{fns} has more than one element,
 and \code{name.sep} is \code{NULL}, it will default to a numeric vector that is equal
 to \code{length(fns)}. If \code{name.sep} is provided as a list, each element of this
-list must contain a character vector of length 1 or \code{nrow(x)} that will
+list must contain a character vector of length 1 or \code{ncol(x)} that will
 be appended to existing column names to create new column names. Providing
 this argument ensures that the transformed columns will be appended as new
 matrix columns.}
